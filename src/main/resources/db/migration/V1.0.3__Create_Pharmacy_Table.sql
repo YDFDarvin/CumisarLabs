@@ -1,0 +1,1 @@
+create table pharmacy (id int8 not null, address varchar(255), name varchar(255), primary key (id));

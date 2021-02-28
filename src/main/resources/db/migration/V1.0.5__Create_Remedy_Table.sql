@@ -1,0 +1,1 @@
+create table remedy (id int8 not null, name varchar(255), price numeric(19, 2), category_id int8, primary key (id));

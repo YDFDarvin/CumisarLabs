@@ -9,13 +9,14 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-public class Product {
+public class Remedy {
     @Id
     private Long id;
 
     private String name;
     private BigDecimal price;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category category;
+    private RemedyCategory category;
 }
