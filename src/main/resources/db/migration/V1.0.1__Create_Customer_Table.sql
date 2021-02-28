@@ -1,0 +1,1 @@
+create table customer (id int8 not null, balance float8, name varchar(255), primary key (id));
