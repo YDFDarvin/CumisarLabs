@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.abstractions;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;

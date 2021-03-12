@@ -1,6 +1,6 @@
-package com.example.demo.controller.api;
+package com.example.demo.abstractions;
 
-import com.example.demo.service.BaseCrudService;
+import com.example.demo.interfaces.entity.IBaseEntity;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-public abstract class BaseCrudController<TEntity> {
+public abstract class BaseCrudController<TEntity extends IBaseEntity> {
     final BaseCrudService<TEntity> service;
 
     @ApiOperation(value = "Get list of entities")
