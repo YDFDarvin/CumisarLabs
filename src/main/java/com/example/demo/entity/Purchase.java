@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.interfaces.IBaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
@@ -7,8 +8,9 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class Purchase {
+public class Purchase implements IBaseEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @JsonIgnore
@@ -25,4 +27,9 @@ public class Purchase {
     @ManyToOne
     @JoinColumn(name = "pharmacist_id")
     private Pharmacist pharmacist;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "remedy_id")
+    private Remedy remedy;
 }
