@@ -1,12 +1,13 @@
 package com.example.demo.service;
 
+import com.example.demo.interfaces.IBaseEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-public abstract class BaseCrudService<TEntity> {
+public abstract class BaseCrudService <TEntity extends IBaseEntity> {
     final protected JpaRepository<TEntity, Long> repository;
 
     public TEntity findById(Long id) {
