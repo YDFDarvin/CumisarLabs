@@ -46,7 +46,6 @@ public class PharmacistV2ServiceTest {
         Mockito.when(repository.save(Mockito.any())).thenReturn(PharmacistStab.getPharmacist());
         Mockito.when(repository.existsById(PharmacistStab.ID)).thenReturn(true);
         try {
-            ResponsePharmacistDTO saved = service.create(PharmacistStab.getRequestDto());
             ResponsePharmacistDTO result = service.update(PharmacistStab.ID, PharmacistStab.getRequestDto());
             Mockito.verify(repository, Mockito.atLeastOnce()).save(captor.capture());
 
