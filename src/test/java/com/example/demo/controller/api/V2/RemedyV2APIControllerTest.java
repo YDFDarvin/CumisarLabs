@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class RemedyV2APIControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "user", password = "user", roles = "USER")
     void testGetAll() throws Exception {
         ArrayList<ResponseRemedyDTO> list = new ArrayList<>(Arrays.asList(RemedyStab.getResponseDto()));
         when(service.findAll()).thenReturn(list);
@@ -51,6 +53,7 @@ public class RemedyV2APIControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "user", password = "user", roles = "USER")
     void testGetById() throws Exception {
         when(service.findById(Mockito.any())).thenReturn(RemedyStab.getResponseDto());
 
@@ -61,12 +64,14 @@ public class RemedyV2APIControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "admin", password = "admin", roles = "ADMIN")
     void testDeleteById() throws Exception {
         mvc.perform(delete("/api/v2/remedy/1/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
+    @WithMockUser(username = "admin", password = "admin", roles = "ADMIN")
     void testCreate() throws Exception {
         when(service.create(Mockito.any())).thenReturn(RemedyStab.getResponseDto());
 
@@ -77,6 +82,7 @@ public class RemedyV2APIControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "admin", password = "admin", roles = "ADMIN")
     void testUpdate() throws Exception {
         when(service.update(Mockito.any(), Mockito.any())).thenReturn(RemedyStab.getResponseDto());
 

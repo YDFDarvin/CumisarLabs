@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RequestCustomerDTO implements IBaseDTO {
     private String name;
-
+    private String email;
+    private String password;
     private Double balance;
 }
